@@ -1,0 +1,16 @@
+var firstName = "Michael";
+var age = 29;
+// old way
+console.log("My name is " + firstName + " and my age is " + age);
+// better way
+console.log(`My name is ${firstName} and my age is ${age}`);
+
+alert(`Hello, I am ${firstName}`);
+
+const birthday = "02/19/1990";
+let fixDate = new Date(birthday);
+console.log(fixDate);
+
+let hello = new String("Hello There");
+alert(hello);
+
