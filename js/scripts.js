@@ -57,7 +57,7 @@ function squareNumber(number)
 
 let userNumber = prompt("Please enter a number to square.");
 
-alert(`You're number is now: ${squareNumber(userNumber)}.`);
+alert(`Your number is now: ${squareNumber(userNumber)}.`);
 
 
 function capitalizeFirstPeriodToEnd(sentence)
