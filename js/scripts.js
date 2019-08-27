@@ -1,23 +1,4 @@
-// const turnValueUppercase = val => console.log(val.toUpperCase());
-// const multipleValues = (arg1, arg2) => console.log(arg1 * arg2); //don't need return
-
-// turnValueUppercase("hi");
-// multipleValues(2,6);
-
-// //create an array of three names
-// let names = ["John", "Jacob", "Julien", "Jacque"];
-// //create a greeting that will be taking in a name value
-// const greeting = name => `Good evening, ${name}`;
-
-// //test result first:
-// console.log(`The array of names ${names}`, `greeting function value: ${greeting ('Example')}`);
-
-// //loop through names and add greeting function to it
-
-// for(j = 0; j < names.length; j++)
-// {
-//     console.log(greeting(names[j]));
-// }
+//Day5 In Class Challenge
 
 //grab element from HTML
 const greeting = document.getElementById("greeting");
@@ -34,4 +15,94 @@ function addItemToList()
 
     li.appendChild(document.createTextNode(groceryItem.value)); //add grocery item to li
     groceryList.appendChild(li); //add li to ul
+}
+
+//Day5 Try it Out
+
+function convertToDogYears(years)
+{
+    if(isNaN(years))
+    {
+        console.log("This value is Not a number!");
+    }
+    else
+    {
+        return `${years*7} dog years`;
+    }
+}
+
+function calculateLifetimeSupply(ageOfPersonNow, amountOfProductPerDay, maxAge)
+{
+    let yearsToLive = maxAge - ageOfPersonNow;
+    let daysToLive = yearsToLive*365; //365 days in a year
+
+    alert(`You will need ${amountOfProductPerDay*daysToLive}(amt of product) to last you until you're ${maxAge}.`);
+}
+
+console.log(convertToDogYears(12.5));
+calculateLifetimeSupply(29, 3, 82);
+
+//Day5 takehome
+
+function squareNumber(number)
+{
+    while(isNaN(number))
+    {
+        number = prompt("Please enter a number!");
+    }
+
+    return number*number;
+}
+
+
+let userNumber = prompt("Please enter a number to square.");
+
+alert(`You're number is now: ${squareNumber(userNumber)}.`);
+
+
+function capitalizeFirstPeriodToEnd(sentence)
+{
+    sentence = sentence.charAt(0).toUpperCase() + sentence.slice(1);
+
+    sentence = sentence.concat('.'); //add period to end
+
+    console.log(sentence);
+}
+
+capitalizeFirstPeriodToEnd("i like dogs");
+
+function flipString(sentence)
+{
+    let middleIndexOfSentence = Math.floor(sentence.length/2);
+
+    let firstHalf = sentence.substring(0, middleIndexOfSentence);
+    let secondHalf = sentence.substring(middleIndexOfSentence, sentence.length);
+
+    return secondHalf.concat(firstHalf); //swap sections
+}
+
+console.log(flipString("Jacque is legit."));
+
+function checkPalindrome(sentence)
+{
+    let isPalindrome = false;
+    let flippedSentence = sentence.split('').reverse().join('');
+
+    if(sentence == flippedSentence)
+    {
+        isPalindrome = true;
+    }
+
+    return isPalindrome;
+}
+
+let palindromeToTest = prompt("Please enter a sentence to check if it is a palindrome!");
+
+if(checkPalindrome(palindromeToTest))
+{
+    alert("Your sentence was a palindrome!");
+}
+else
+{
+    alert("Sorry, that was not a palindrome...");
 }
