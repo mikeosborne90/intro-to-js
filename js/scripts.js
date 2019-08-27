@@ -19,37 +19,19 @@
 //     console.log(greeting(names[j]));
 // }
 
-//grab elements from HTML
-const groceryList = document.getElementById("groceryList");
-const groceryItem = document.getElementById("groceryItem");
+//grab element from HTML
 const greeting = document.getElementById("greeting");
-const getGroceryItem = document.getElementById("getGroceryItem");
-
-let arrayOfGroceryItems = [];
 
 greeting.innerHTML = "Michael's Grocery List";
 
 //create function to add onto grocery list
 
-const addGroceryItem = (arr, value) => arr.push(value);
+function addItemToList()
+{
+    const groceryList = document.getElementById("groceryList"); //our ul from html
+    let groceryItem = document.getElementById("groceryItem"); //user inputted grocery item
+    let li = document.createElement("li"); //create new li in html
 
-// console.log(addGroceryItem(arrayOfGroceryItems, "Carrots"));
-// console.log(arrayOfGroceryItems);
-
-// function addGroceryItemsAndDisplay(arr, value) 
-// {
-//     arr.push(value);
-// }
-
-// //goal: push array items to list on html
-// function ejectGroceryItemToList(val) {
-//     //grab list item
-
-//     for (grocery = 0; grocery < arrayOfGroceryItems.length; grocery++) 
-//     {
-//         groceryItem.innerHTML = val;
-//     }
-// }
-
-addGroceryItem("carrots");
-addGroceryItem("brocolli");
+    li.appendChild(document.createTextNode(groceryItem.value)); //add grocery item to li
+    groceryList.appendChild(li); //add li to ul
+}
