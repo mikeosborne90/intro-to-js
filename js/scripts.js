@@ -1,66 +1,55 @@
-//Try it Out Day 4
-let movie1 = ["Pulp Fiction", "Vincent Vega", 1994];
-let movie2 = ["Appocalypse Now", "Cap. Benjamin L. Willard", 1979];
-let movie3 = ["Full Metal Jacket", "Joker", 1987];
-let movie4 = ["Saving Private Ryan", "Private Ryan", 1998];
-let movie5 = ["Eternal Sunshine of The Spotless Mind", "Joel Barish", 2004];
+// const turnValueUppercase = val => console.log(val.toUpperCase());
+// const multipleValues = (arg1, arg2) => console.log(arg1 * arg2); //don't need return
 
-let favoriteMovies = [movie1, movie2, movie3, movie4, movie5];
+// turnValueUppercase("hi");
+// multipleValues(2,6);
 
-for (let i = 0;i < favoriteMovies.length; i++)
-{
-    if(favoriteMovies[i][0] == "Full Metal Jacket")
-    {
-        alert(`${favoriteMovies[i][0]}, ${favoriteMovies[i][2]}`);
-    }
-}
+// //create an array of three names
+// let names = ["John", "Jacob", "Julien", "Jacque"];
+// //create a greeting that will be taking in a name value
+// const greeting = name => `Good evening, ${name}`;
 
-//Takehome Day4
-let numberOfItems = 3;
-let toDoList = [];
+// //test result first:
+// console.log(`The array of names ${names}`, `greeting function value: ${greeting ('Example')}`);
 
-for(let i = 0; i < numberOfItems; i++)
-{
-    toDoList.push([prompt(`Enter todo Item# ${i+1}`)]); //enter todo items as arrays
-}
+// //loop through names and add greeting function to it
 
-for(let i = 0; i < toDoList.length; i++)
-{
-    toDoList[i].push((i+1)*2); //add amount of days item will take
-}
+// for(j = 0; j < names.length; j++)
+// {
+//     console.log(greeting(names[j]));
+// }
 
-let longestTaskName = toDoList[0][0]; //default to first name value in list
-let longestTaskDays = toDoList[0][1]; //default to first day(s) value in list
-let iterator = 0;
+//grab elements from HTML
+const groceryList = document.getElementById("groceryList");
+const groceryItem = document.getElementById("groceryItem");
+const greeting = document.getElementById("greeting");
+const getGroceryItem = document.getElementById("getGroceryItem");
 
-while(iterator < toDoList.length)
-{
-    if(toDoList[iterator][1] > longestTaskDays)
-    {
-        longestTaskName = toDoList[iterator][0];
-        longestTaskDays = toDoList[iterator][1];
-    }
-    iterator++;
-}
+let arrayOfGroceryItems = [];
 
-console.log(`The longest task will be: ${longestTaskName}, it will take: ${longestTaskDays} days.`);
+greeting.innerHTML = "Michael's Grocery List";
 
-let j = 0;
+//create function to add onto grocery list
 
-do
-{
-    if(longestTaskName != toDoList[j][0])
-    {
-        toDoList[j].push("easy-peasy");
-        alert(`${toDoList[j][0]}, is easy!`);
-    }
-    else
-    {
-        toDoList[j].push("difficult");
-    }
+const addGroceryItem = (arr, value) => arr.push(value);
 
-    j++;
+// console.log(addGroceryItem(arrayOfGroceryItems, "Carrots"));
+// console.log(arrayOfGroceryItems);
 
-} while(j < toDoList.length)
+// function addGroceryItemsAndDisplay(arr, value) 
+// {
+//     arr.push(value);
+// }
 
-console.log(toDoList);
+// //goal: push array items to list on html
+// function ejectGroceryItemToList(val) {
+//     //grab list item
+
+//     for (grocery = 0; grocery < arrayOfGroceryItems.length; grocery++) 
+//     {
+//         groceryItem.innerHTML = val;
+//     }
+// }
+
+addGroceryItem("carrots");
+addGroceryItem("brocolli");
