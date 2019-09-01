@@ -1,108 +1,77 @@
-//Day5 In Class Challenge
+//In class challenge Day6
+magicButton.addEventListener("click", () => {
+    alert("Magic Button Clicked!");
+});
 
-//grab element from HTML
-const greeting = document.getElementById("greeting");
+btnDiv.addEventListener("mouseover", () => {
+    btnDiv.style.backgroundColor = "#aabaaa";
+});
 
-greeting.innerHTML = "Michael's Grocery List";
+btnDiv.addEventListener("mouseout", () => {
+    btnDiv.style.backgroundColor = "#09AAAA";
+});
 
-//create function to add onto grocery list
+document.addEventListener("keyup", () => {
+    btnH1.style.color = "#fff";
+});
 
-function addItemToList()
+document.addEventListener("keydown", () => {
+    btnH1.style.color = "#000";
+});
+
+// takes user to facebook on any click, commented out for less annoyance :-)
+// document.addEventListener("click", () =>
+// {
+//     window.location = "https://www.facebook.com/";
+// });
+
+//Take Home Day6
+
+let myScale = prompt("Enter f or c to convert!");
+
+while (myScale != 'f' && myScale != 'c') //make sure only 'f' or 'c' given
 {
-    const groceryList = document.getElementById("groceryList"); //our ul from html
-    let groceryItem = document.getElementById("groceryItem"); //user inputted grocery item
-    let li = document.createElement("li"); //create new li in html
-
-    li.appendChild(document.createTextNode(groceryItem.value)); //add grocery item to li
-    groceryList.appendChild(li); //add li to ul
+    myScale = prompt("Enter f or c to convert!")
 }
 
-//Day5 Try it Out
+let myTemp = prompt("Enter a temp(number) to convert!");
 
-function convertToDogYears(years)
+while (isNaN(myTemp))                    //make sure a number is given
 {
-    if(isNaN(years))
+    myTemp = prompt("Enter a temp(number) to convert!");
+}
+
+function convertTemperature(scale, temp) 
+{
+    if (scale == 'f') //convert f to c
     {
-        console.log("This value is Not a number!");
+        return ((temp - 32) * (5 / 9));
     }
-    else
+    else if (scale == 'c')  //convert c to f
     {
-        return `${years*7} dog years`;
+        return ((temp * (9 / 5)) + 32);
+    }
+    else 
+    {
+        alert("You must enter f or c!");
     }
 }
 
-function calculateLifetimeSupply(ageOfPersonNow, amountOfProductPerDay, maxAge)
+document.getElementById("temp").innerHTML = `${myTemp}&deg${myScale.toUpperCase()}`;
+
+temp.addEventListener("click", () => 
 {
-    let yearsToLive = maxAge - ageOfPersonNow;
-    let daysToLive = yearsToLive*365; //365 days in a year
+    myTemp = convertTemperature(myScale, myTemp).toFixed(1); //set to one decimal for degrees
 
-    alert(`You will need ${amountOfProductPerDay*daysToLive}(amt of product) to last you until you're ${maxAge}.`);
-}
-
-console.log(convertToDogYears(12.5));
-calculateLifetimeSupply(29, 3, 82);
-
-//Day5 takehome
-
-function squareNumber(number)
-{
-    while(isNaN(number))
+    //change value of myScale after conversion
+    if (myScale == 'f') 
     {
-        number = prompt("Please enter a number!");
+        myScale = 'c';
     }
-
-    return number*number;
-}
-
-
-let userNumber = prompt("Please enter a number to square.");
-
-alert(`Your number is now: ${squareNumber(userNumber)}.`);
-
-
-function capitalizeFirstPeriodToEnd(sentence)
-{
-    sentence = sentence.charAt(0).toUpperCase() + sentence.slice(1);
-
-    sentence = sentence.concat('.'); //add period to end
-
-    console.log(sentence);
-}
-
-capitalizeFirstPeriodToEnd("i like dogs");
-
-function flipString(sentence)
-{
-    let middleIndexOfSentence = Math.floor(sentence.length/2);
-
-    let firstHalf = sentence.substring(0, middleIndexOfSentence);
-    let secondHalf = sentence.substring(middleIndexOfSentence, sentence.length);
-
-    return secondHalf.concat(firstHalf); //swap sections
-}
-
-console.log(flipString("Jacque is legit."));
-
-function checkPalindrome(sentence)
-{
-    let isPalindrome = false;
-    let flippedSentence = sentence.split('').reverse().join('');
-
-    if(sentence == flippedSentence)
+    else 
     {
-        isPalindrome = true;
+        myScale = 'f';
     }
 
-    return isPalindrome;
-}
-
-let palindromeToTest = prompt("Please enter a sentence to check if it is a palindrome!");
-
-if(checkPalindrome(palindromeToTest))
-{
-    alert("Your sentence was a palindrome!");
-}
-else
-{
-    alert("Sorry, that was not a palindrome...");
-}
+    document.getElementById("temp").innerHTML = `${myTemp}&deg${myScale.toUpperCase()}`;
+});

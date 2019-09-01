@@ -1,33 +1,11 @@
-body
+#btnDiv
 {
-    background-color: skyblue;
+    height: 100px;
+    background-color: #09AAAA;
 }
 
-main
+#magicButton
 {
-    min-height: 100vh;
-}
-
-section
-{
-    background-color: #fff;
-    color: #333;
-    padding: 0.5em;
-}
-
-ul, li
-{
-    list-style: none;
-}
-
-li::before
-{
-    content: '- ';
-    font-weight: bold;
-}
-
-h1
-{
-    font-style: italic;
-    color: skyblue;
+    height: 30px;
+    width: 60px;
 }
