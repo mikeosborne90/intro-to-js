@@ -17,6 +17,8 @@ row.appendChild(content);
 container.appendChild(row);
 body.appendChild(container);
 
+//----------Form Generation Functions----------
+
 function createLabel(forValue, textValue)
 {
     const label = document.createElement("label");
@@ -26,7 +28,6 @@ function createLabel(forValue, textValue)
 
     return label;
 }
-//----------Form Generation Functions----------
 
 function createInput(typeValue, nameValue, placeholderValue, classValue, idValue)
 {
