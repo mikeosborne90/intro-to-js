@@ -1,3 +1,8 @@
+//Structure dynamically created to html:
+//body -> div.conatiner -> main.row -> div.content -> form
+
+//----------------Setup-------------------
+
 const body = document.body;
 const container = document.createElement("div");
 container.className = "container text-center";
@@ -21,8 +26,8 @@ function createLabel(forValue, textValue)
 
     return label;
 }
+//----------Form Generation Functions----------
 
-// (param = 0) should be optional parameter
 function createInput(typeValue, nameValue, placeholderValue, classValue, idValue)
 {
     const input = document.createElement("input");
@@ -58,8 +63,17 @@ function createForm(name, method, action, labels, inputs)
         console.log("Form # of labels and inputs do not match!");
     }
 
+    const button = document.createElement("button");
+    button.className = "btn-primary btn";
+    button.type = "submit";
+    button.innerText = "Submit";
+
+    form.appendChild(button);
+
     return form;
 }
+
+//----------------Add labels and inputs to Arrays-------------------
 
 let myLabels = [];
 let label1 = createLabel("email", "Email");
@@ -78,6 +92,8 @@ let input3 = createInput("text", "message", "Enter Message Here","form-control",
 myInputs.push(input1);
 myInputs.push(input2);
 myInputs.push(input3);
+
+//----------Call createForm Function and attach to div.content-------------
 
 let myForm = createForm("basicForm", "GET", "js/form-submission.js", myLabels, myInputs);
 
